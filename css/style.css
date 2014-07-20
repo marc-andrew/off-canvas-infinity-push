@@ -1,0 +1,323 @@
+/*****************************************************************
+ * CSS Resets
+ *****************************************************************/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/*****************************************************************
+ * Fonts
+ *****************************************************************/
+@font-face {
+  font-family: 'BLOKKRegular';
+  src: url("../assets/fonts/BLOKKRegular/BLOKKRegular.eot");
+  src: url("../assets/fonts/BLOKKRegular/BLOKKRegular.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/BLOKKRegular/BLOKKRegular.woff") format("woff"), url("../assets/fonts/BLOKKRegular/BLOKKRegular.svg#BLOKKRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*****************************************************************
+ * Body
+ *****************************************************************/
+* {
+  border-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  background-color: #3498db;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+}
+
+/*****************************************************************
+ * Typography
+ *****************************************************************/
+strong {
+  font-weight: bold;
+}
+
+p {
+  font-size: 0.9375rem;
+  color: white;
+  line-height: 1.25rem;
+  letter-spacing: 0.03125rem;
+  margin: 1.25rem 0;
+}
+
+/*****************************************************************
+ * Links
+ *****************************************************************/
+a {
+  font-size: 0.8125rem;
+  color: #3498db;
+  text-decoration: underline;
+}
+a:hover {
+  text-decoration: none;
+}
+
+/*****************************************************************
+ * Lists
+ *****************************************************************/
+ul, ol {
+  margin: 0;
+}
+
+ul {
+  list-style: disc inside;
+}
+
+ol {
+  list-style: decimal inside;
+}
+
+/*****************************************************************
+ * Wrapper
+ *****************************************************************/
+#wrapper {
+  position: relative;
+  width: 100%;
+  min-width: 20rem;
+}
+
+/*****************************************************************
+ * Header
+ *****************************************************************/
+#header {
+  background-color: #3498db;
+  height: 2.5rem;
+}
+@media screen and (min-width: 768px) {
+  #header {
+    background-color: #393939;
+    height: 3.75rem;
+  }
+}
+#header .header-main {
+  max-width: 75rem;
+  height: 2.5rem;
+  margin: 0 auto;
+  padding: 0 0.625rem;
+}
+@media screen and (min-width: 768px) {
+  #header .header-main {
+    height: 3.75rem;
+    padding: 0 0.625rem;
+  }
+}
+#header .header-main .site-title {
+  position: relative;
+  float: left;
+  width: 3.5625rem;
+  height: 100%;
+  margin: 0 1.25rem 0 0.9375rem;
+}
+#header .header-main .site-title a {
+  position: absolute;
+  display: block;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgMTk4LjkgNzAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE5OC45IDcwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjE5OC45LDcwIDE1OC41LDAgMTMyLjYsNDQuOSAxNDcuMSw3MCAJIi8+Cgk8cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjExMi43LDcwIDE1My4xLDAgMTAxLjMsMCA2MC45LDcwIAkiLz4KCTxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNTEuOCw3MCA5Mi4yLDAgNDAuNCwwIDAsNzAgCSIvPgo8L2c+Cjwvc3ZnPg==) no-repeat 0 0;
+  text-indent: -9999px;
+  width: 3.5625rem;
+  height: 1.25rem;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/*****************************************************************
+ * Site Navigation
+ *****************************************************************/
+.desktop #primary-navigation {
+  position: static;
+  background-color: #393939;
+  width: 100%;
+  height: 100%;
+  right: -12.5rem;
+  float: left;
+}
+.desktop #primary-navigation ul {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  float: left;
+}
+.desktop #primary-navigation ul:before, .desktop #primary-navigation ul:after {
+  content: "";
+  display: block;
+}
+.desktop #primary-navigation ul:after {
+  clear: both;
+}
+.desktop #primary-navigation ul li {
+  padding: 0;
+  float: left;
+  height: 3.75rem;
+}
+.desktop #primary-navigation ul li a {
+  display: block;
+  text-decoration: none;
+  color: #3498db;
+  padding: 0 1.25rem;
+  -webkit-transition: background-color	0.3s ease-in-out, color 0.3s ease-in-out;
+  -moz-transition: background-color	0.3s ease-in-out, color 0.3s ease-in-out;
+  -o-transition: background-color	0.3s ease-in-out, color 0.3s ease-in-out;
+  -ms-transition: background-color	0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color	0.3s ease-in-out, color 0.3s ease-in-out;
+  line-height: 3.75rem;
+  height: 3.75rem;
+}
+.desktop #primary-navigation ul li a:hover {
+  border-top: 0.0625rem solid #dddddd;
+  border-bottom: 0.0625rem solid #dddddd;
+  color: white;
+  border: none;
+  background-color: #3498db;
+  line-height: 3.75rem;
+}
+.desktop #primary-navigation ul li ul {
+  display: none;
+}
+
+/*****************************************************************
+ * Main
+ *****************************************************************/
+#main {
+  padding: 1.25rem;
+  clear: both;
+  min-width: 20rem;
+}
+#main h1 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  letter-spacing: 0.0375rem;
+  text-align: center;
+  margin: 1.875rem 0 0 0;
+}
+#main h2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.125rem;
+  color: white;
+  letter-spacing: 0.0375rem;
+  text-align: center;
+  margin: 1.875rem 0;
+}
+#main nav {
+  display: block;
+  margin: 1.875rem 0;
+  text-align: center;
+}
+#main nav a {
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.9375rem;
+  color: #1e6fa4;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.0375rem;
+  padding: 0.625rem 0.9375rem;
+}
+#main nav a:hover {
+  color: #125480;
+}
+#main nav a.active {
+  color: white;
+}
+#main p.blindtext {
+  font-family: "BLOKKRegular", sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+#main button {
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.9375rem;
+  color: white;
+  letter-spacing: 0.0375rem;
+  background-color: transparent;
+  border: 0.125rem solid white;
+  padding: 0.625rem 2.5rem;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+/*****************************************************************
+ * Footer
+ *****************************************************************/
+#footer {
+  background-color: #393939;
+  width: 100%;
+  height: 1.9375rem;
+}
+#footer .footer-main {
+  max-width: 75rem;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0.625rem 0.625rem 0 0.625rem;
+}
+@media screen and (min-width: 768px) {
+  #footer .footer-main {
+    padding: 0.625rem 0.625rem 0 0.625rem;
+  }
+}
+#footer .footer-main span {
+  display: block;
+  color: #777777;
+  font-size: 0.625rem;
+}
