@@ -301,23 +301,21 @@ ol {
  * Footer
  *****************************************************************/
 #footer {
-  background-color: #393939;
   width: 100%;
-  height: 1.9375rem;
 }
 #footer .footer-main {
   max-width: 75rem;
   height: 100%;
   margin: 0 auto;
-  padding: 0.625rem 0.625rem 0 0.625rem;
+  padding: 0.625rem 0.625rem 1.875rem 0.625rem;
+  overflow: hidden;
 }
-@media screen and (min-width: 768px) {
-  #footer .footer-main {
-    padding: 0.625rem 0.625rem 0 0.625rem;
-  }
-}
-#footer .footer-main span {
-  display: block;
-  color: #777777;
+#footer .footer-main p {
+  text-align: center;
   font-size: 0.625rem;
+  margin: 0;
+}
+#footer .footer-main p a {
+  color: #fff;
+  text-decoration: none;
 }
