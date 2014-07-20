@@ -17,13 +17,13 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 		 */
 
 		var defaults = {
+			offcanvase			: true,
+			offcanvasespeed		: 400,
+			offcanvaseleft		: true,
 			openingspeed		: 400,
 			closingspeed		: 400,
 			spacing				: 90,
 			pushdirectionleft	: true,
-			offcanvase			: true,
-			togglespeed			: 400,
-			toggledirectionleft	: true,
 			autoScroll			: true,
 			scrollSpeed			: 300,
 			destroy				: false
@@ -88,7 +88,7 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 				if(opts.offcanvase == true) {
 					$(this).before(navButtonDiv);
 
-					if(opts.toggledirectionleft == true) {
+					if(opts.offcanvaseleft == true) {
 						$('.' + navWrapper).css({ left: '-' + navWidth + 'px' });
 						$('.' + navWrapper).addClass('ma-infinitypush-button-left');
 					} else {
@@ -125,28 +125,28 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 				// Start closing animation function
 				function closingAnimation() {
 
-					if(opts.toggledirectionleft == true) {
+					if(opts.offcanvaseleft == true) {
 						$('.' + navWrapper).stop().animate({
 							left: '-' + navWidth + 'px'
-						}, opts.togglespeed);
+						}, opts.offcanvasespeed);
 					} else {
 						$('.' + navWrapper).stop().animate({
 							right: '-' + navWidth + 'px'
-						}, opts.togglespeed);
+						}, opts.offcanvasespeed);
 					}
 
 					$('.' + infinityPush).stop().animate({
 						opacity: 'hide'
-					}, opts.togglespeed);
+					}, opts.offcanvasespeed);
 
-					if(opts.toggledirectionleft == true) {
+					if(opts.offcanvaseleft == true) {
 						$('.' + navWrapper).next().stop().animate({
 							left: 0
-						}, opts.togglespeed);
+						}, opts.offcanvasespeed);
 					} else {
 						$('.' + navWrapper).next().stop().animate({
 							right: 0
-						}, opts.togglespeed);
+						}, opts.offcanvasespeed);
 					}
 
 					$('body').removeClass(infinityPushOpen);
@@ -158,28 +158,28 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 
 					$('body').addClass(infinityPushOpen);
 
-					if(opts.toggledirectionleft == true) {
+					if(opts.offcanvaseleft == true) {
 						$('.' + navWrapper).stop().animate({
 							left: 0
-						}, opts.togglespeed);
+						}, opts.offcanvasespeed);
 					} else {
 						$('.' + navWrapper).stop().animate({
 							right: 0
-						}, opts.togglespeed);
+						}, opts.offcanvasespeed);
 					}
 
 					$('.' + infinityPush).stop().animate({
 						opacity: 'show'
-					}, opts.togglespeed);
+					}, opts.offcanvasespeed);
 
-					if(opts.toggledirectionleft == true) {
+					if(opts.offcanvaseleft == true) {
 						$('.' + navWrapper).next().stop().animate({
 							left: navWidth + 'px'
-						}, opts.togglespeed);
+						}, opts.offcanvasespeed);
 					} else {
 						$('.' + navWrapper).next().stop().animate({
 							right: navWidth + 'px'
-						}, opts.togglespeed);
+						}, opts.offcanvasespeed);
 					}
 
 					clickOutside();
