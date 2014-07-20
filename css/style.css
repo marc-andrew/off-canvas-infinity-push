@@ -310,12 +310,12 @@ ol {
   padding: 0.625rem 0.625rem 1.875rem 0.625rem;
   overflow: hidden;
 }
-#footer .footer-main p {
+#footer .footer-main > p {
   text-align: center;
   font-size: 0.625rem;
   margin: 0;
 }
-#footer .footer-main p a {
+#footer .footer-main > p a {
   color: #fff;
   text-decoration: none;
 }
