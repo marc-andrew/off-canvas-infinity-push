@@ -34,15 +34,20 @@
 	<script type="text/javascript">
 
 		$(document).ready(function(){
+
 			function responsive() {
 				if($(window).width() <= 767){
 					console.log('mobile navigation');
-					var test = $('#primary-navigation').infinitypush();
+
+					$('#primary-navigation').infinitypush();
 
 					$('body').removeClass('desktop');
 				} else {
 					console.log('desktop navigation');
-					$('#primary-navigation').infinitypush({destroy:true});
+
+					$('#primary-navigation').infinitypush({
+						destroy:true
+					});
 
 					$('body').addClass('desktop');
 				}
@@ -56,6 +61,7 @@
 
 			responsive();
 			windowResize();
+
 		});
 
 	</script>

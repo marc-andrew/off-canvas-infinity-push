@@ -34,13 +34,17 @@
 	<script type="text/javascript">
 
 		$(document).ready(function(){
+
 			$('#primary-navigation').infinitypush();
 
 			$('button').on('click', function(){
-				$('#primary-navigation').infinitypush({destroy:true});
+				$('#primary-navigation').infinitypush({
+					destroy: true
+				});
 
 				$('body').addClass('desktop');
 			});
+
 		});
 
 	</script>
