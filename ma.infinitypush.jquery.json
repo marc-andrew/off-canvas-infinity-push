@@ -1,0 +1,36 @@
+{
+  "name": "Off Canvas Infinity Push",
+  "title": "Off Canvas Infinity Push Mobile Navigation",
+  "description": "Off Canvas Infinity Push is a jQuery plugin that gives you the ability to make any desktop navigation into a mobile navigation.",
+  "keywords": [
+    "jquery",
+    "mobile",
+    "navigation",
+    "off-canvas",
+    "push",
+    "responsive",
+    "css3",
+    "html5",
+    "autoscroll",
+    "plugins"
+  ],
+  "version": "1.0.0",
+  "author": {
+    "name": "Marc Andrew San Buenaventura",
+    "email": "contact@marcandrew.net",
+    "url": "https://github.com/marc-andrew/off-canvas-infinity-push"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "bugs": "https://github.com/marc-andrew/off-canvas-infinity-push/issues",
+  "homepage": "http://www.marcandrew.net/off-canvas-infinity-push/",
+  "docs": "https://github.com/marc-andrew/off-canvas-infinity-push/blob/master/README.md",
+  "download": "https://github.com/marc-andrew/off-canvas-infinity-push/archive/master.zip",
+  "dependencies": {
+    "jquery": ">=1.7"
+  }
+}
