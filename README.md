@@ -19,10 +19,10 @@ The stylesheet can be modified to fit the website design.
 
 ```html
 <!-- Basic stylesheet -->
-<link rel="stylesheet" type="text/css" href="jquery.ma.infinitypush/jquery.ma.infinitypush.css" />
+<link rel="stylesheet" type="text/css" href="plugin/jquery.ma.infinitypush.css" />
 
 <!-- Include js plugin -->
-<script src="jquery.ma.infinitypush/jquery.ma.infinitypush.js"></script>
+<script src="plugin/jquery.ma.infinitypush.js"></script>
 ```
 
 ### Basic Navigation Markup
