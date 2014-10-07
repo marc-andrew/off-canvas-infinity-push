@@ -1,7 +1,7 @@
 /*!
 Off Canvas Infinity Push, a infinity push mobile navigation jQuery plugin.
 
-Version 1.0.0
+Version 1.0.2
 Full source at https://github.com/marc-andrew/off-canvas-infinity-push
 Copyright (c) 2014 Marc Andrew http://marcandrew.net/off-canvas-infinity-push
 
@@ -26,6 +26,7 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 			pushdirectionleft	: true,
 			autoScroll			: true,
 			scrollSpeed			: 300,
+			transition			: false,
 			destroy				: false
 		};
 
@@ -39,31 +40,136 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 
 		return this.each(function() {
 
-			var oldposition			= $(this).data('oldposition') || $('body'),
-				navWrapper			= 'ma-infinitypush-wrapper',
-				navWrapperDiv		= '<div class="' + navWrapper + '"></div>',
-				navButtonActive		= 'ma-infinitypush-active-button',
-				navButton			= 'ma-infinitypush-button',
-				navButtonDiv		= '<div class="' + navButton + '"></div>',
-				infinityPush		= 'ma-infinitypush',
-				infinityPushOpen	= 'ma-infinitypush-open';
-			
+			var oldposition				= $(this).data('oldposition') || $('body'),
+				navWrapper				= 'ma-infinitypush-wrapper',
+				navWrapperDiv			= '<div class="' + navWrapper + '"></div>',
+				navButtonActive			= 'ma-infinitypush-active-button',
+				navButton				= 'ma-infinitypush-button',
+				navButtonDiv			= '<div class="' + navButton + '"></div>',
+				navButtonLeft			= 'ma-infinitypush-button-left',
+				navButtonRight			= 'ma-infinitypush-button-right',
+				infinityPush			= 'ma-infinitypush',
+				infinityPushLeft		= 'ma-infinitypush-left',
+				infinityPushRight		= 'ma-infinitypush-right',
+				infinityPushOpen		= 'ma-infinitypush-open',
+				subOpen					= 'ma-infinitypush-sub-open',
+				inactiveList			= 'ma-infinitypush-inactive',
+				inactiveItem			= 'ma-infinitypush-active-item',
+				closeSubButton			= 'ma-infinitypush-close-subnav';
+
+			// Start destroy function
 			function destroy(){
 				$('.' + navButton).unbind();
 				$('.' + infinityPush).unbind();
 				$('body').removeClass(infinityPushOpen);
 				$('.' + navWrapper).next().removeAttr('style');
-				$('.' + navWrapper).find('.ma-infinitypush-inactive').removeClass('ma-infinitypush-inactive');
-				$('.' + navWrapper).find('.ma-infinitypush-active-item').removeClass('ma-infinitypush-active-item');
-				$('.' + navWrapper).find('.ma-infinitypush-close-subnav').remove();
+				$('.' + navWrapper).find('.' + inactiveList).removeClass(inactiveList)
+								   .find('.' + inactiveItem).removeClass(inactiveItem)
+								   .find('.' + closeSubButton).remove();
 				$('.' + navWrapper).find('ul').removeAttr('style');
-				infinityPushWrapper.prependTo(oldposition);
-				infinityPushWrapper.removeClass('ma-infinitypush ma-infinitypush-sub-open');
+				infinityPushWrapper.prependTo(oldposition).removeClass(infinityPush + ' ' + subOpen);
 				$('.' + navWrapper).remove();
 				$(this).removeClass(infinityPush);
 				infinityPushWrapper.stop().removeAttr('style');
 			}
-			
+
+			// Start navigation toggle function
+			function infinityPushToggle() {
+
+				$('.' + navButton).on('click', function(){
+
+					if($('body').hasClass(infinityPushOpen)){
+						closingAnimation();
+					}
+					else {
+						openingAnimation();
+					}
+
+				});
+
+			}
+
+			// Start closing animation function
+			function closingAnimation() {
+
+				if(opts.offcanvasleft === true) {
+					$('.' + navWrapper).stop().animate({
+						left: '-' + navWidth + 'px'
+					}, opts.offcanvasspeed);
+				} else {
+					$('.' + navWrapper).stop().animate({
+						right: '-' + navWidth + 'px'
+					}, opts.offcanvasspeed);
+				}
+
+				$('.' + infinityPush).stop().animate({
+					opacity: 'hide'
+				}, opts.offcanvasspeed);
+
+				if(opts.offcanvasleft === true) {
+					$('.' + navWrapper).next().stop().animate({
+						left: 0
+					}, opts.offcanvasspeed);
+				} else {
+					$('.' + navWrapper).next().stop().animate({
+						right: 0
+					}, opts.offcanvasspeed);
+				}
+
+				$('body').removeClass(infinityPushOpen);
+
+			}
+
+			// Start opening animation
+			function openingAnimation() {
+
+				$('body').addClass(infinityPushOpen);
+
+				if(opts.offcanvasleft === true) {
+					$('.' + navWrapper).stop().animate({
+						left: 0
+					}, opts.offcanvasspeed);
+				} else {
+					$('.' + navWrapper).stop().animate({
+						right: 0
+					}, opts.offcanvasspeed);
+				}
+
+				$('.' + infinityPush).stop().animate({
+					opacity: 'show'
+				}, opts.offcanvasspeed);
+
+				if(opts.offcanvasleft === true) {
+					$('.' + navWrapper).next().stop().animate({
+						left: navWidth + 'px'
+					}, opts.offcanvasspeed);
+				} else {
+					$('.' + navWrapper).next().stop().animate({
+						right: navWidth + 'px'
+					}, opts.offcanvasspeed);
+				}
+
+				clickOutside();
+
+			}
+
+			// Start closing function by clicking outside the infinity navigation
+			function clickOutside() {
+
+				$('.' + infinityPushOpen).on("mousedown touchstart", function (e) {
+
+					if($('.' + infinityPushOpen).length) {
+						// if the target of the click isn't the container...
+						// nor a descendant of the container
+						if (!$('.' + navWrapper).is(e.target) && $('.' + navWrapper).has(e.target).length === 0) {
+							closingAnimation();
+						}
+					}
+
+				});
+
+			}
+
 			if(opts.destroy){
 				if($(this).hasClass(infinityPush))
 					destroy();
@@ -85,122 +191,23 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 				var navWidth	= $('.' + navWrapper).width();
 
 				// Add the mobile menu button
-				if(opts.offcanvas == true) {
+				if(opts.offcanvas === true) {
 					$(this).before(navButtonDiv);
 
-					if(opts.offcanvasleft == true) {
-						$('.' + navWrapper).css({ left: '-' + navWidth + 'px' });
-						$('.' + navWrapper).addClass('ma-infinitypush-button-left');
+					if(opts.offcanvasleft === true) {
+						$('.' + navWrapper).css({ left: '-' + navWidth + 'px' }).addClass(navButtonLeft);
 					} else {
-						$('.' + navWrapper).css({ right: '-' + navWidth + 'px' });
-						$('.' + navWrapper).addClass('ma-infinitypush-button-right');
+						$('.' + navWrapper).css({ right: '-' + navWidth + 'px' }).addClass(navButtonRight);
 					}
 
-					if(opts.pushdirectionleft == true) {
-						$('.' + navWrapper).addClass('ma-infinitypush-left');
+					if(opts.pushdirectionleft === true) {
+						$('.' + navWrapper).addClass(infinityPushLeft);
 					} else {
-						$('.' + navWrapper).addClass('ma-infinitypush-right');
+						$('.' + navWrapper).addClass(infinityPushRight);
 					}
 
 					$('.' + navWrapper).addClass(navButtonActive);
 					infinityPushToggle();
-				}
-
-				// Start navigation toggle function
-				function infinityPushToggle() {
-
-					$('.' + navButton).on('click', function(){
-
-						if($('body').hasClass(infinityPushOpen)){
-							closingAnimation();
-						}
-						else {
-							openingAnimation();
-						}
-
-					});
-
-				}
-
-				// Start closing animation function
-				function closingAnimation() {
-
-					if(opts.offcanvasleft == true) {
-						$('.' + navWrapper).stop().animate({
-							left: '-' + navWidth + 'px'
-						}, opts.offcanvasspeed);
-					} else {
-						$('.' + navWrapper).stop().animate({
-							right: '-' + navWidth + 'px'
-						}, opts.offcanvasspeed);
-					}
-
-					$('.' + infinityPush).stop().animate({
-						opacity: 'hide'
-					}, opts.offcanvasspeed);
-
-					if(opts.offcanvasleft == true) {
-						$('.' + navWrapper).next().stop().animate({
-							left: 0
-						}, opts.offcanvasspeed);
-					} else {
-						$('.' + navWrapper).next().stop().animate({
-							right: 0
-						}, opts.offcanvasspeed);
-					}
-
-					$('body').removeClass(infinityPushOpen);
-
-				}
-
-				// Start opening animation
-				function openingAnimation() {
-
-					$('body').addClass(infinityPushOpen);
-
-					if(opts.offcanvasleft == true) {
-						$('.' + navWrapper).stop().animate({
-							left: 0
-						}, opts.offcanvasspeed);
-					} else {
-						$('.' + navWrapper).stop().animate({
-							right: 0
-						}, opts.offcanvasspeed);
-					}
-
-					$('.' + infinityPush).stop().animate({
-						opacity: 'show'
-					}, opts.offcanvasspeed);
-
-					if(opts.offcanvasleft == true) {
-						$('.' + navWrapper).next().stop().animate({
-							left: navWidth + 'px'
-						}, opts.offcanvasspeed);
-					} else {
-						$('.' + navWrapper).next().stop().animate({
-							right: navWidth + 'px'
-						}, opts.offcanvasspeed);
-					}
-
-					clickOutside();
-
-				}
-
-				// Start closing function by clicking outside the infinity navigation
-				function clickOutside() {
-
-					$('.' + infinityPushOpen).on("mousedown touchstart", function (e) {
-
-						if($('.' + infinityPushOpen).length) {
-							if (!$('.' + navWrapper).is(e.target) // if the target of the click isn't the container...
-								&& $('.' + navWrapper).has(e.target).length === 0) // ... nor a descendant of the container
-							{
-								closingAnimation();
-							}
-						}
-
-					});
-
 				}
 
 				// Start infinity push function
@@ -211,11 +218,7 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 						headParentUL	= $(this).parents(infinityPushWrapper).children('ul'),
 						directParentUL	= $(this).closest('ul'),
 						subUL			= $(this).parent().find('ul').first(),
-						closeSubName	= 'ma-infinitypush-close-subnav',
-						closeSubLink	= '<a href="#" class="' + closeSubName +'"></a>',
-						inactiveList	= 'ma-infinitypush-inactive',
-						inactiveItem	= 'ma-infinitypush-active-item',
-						subOpen 		= 'ma-infinitypush-sub-open';
+						closeSubLink	= '<a href="#" class="' + closeSubButton +'"></a>';
 
 					if ( headParentUL.hasClass(inactiveList) && headParentUL.siblings().not(inactiveList) ) {
 					// Top UL has the class name & the siblings has not the class name
@@ -228,7 +231,7 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 						// Parent UL has the class name, close the sub menu
 
 							// Closing animation
-							if(opts.pushdirectionleft == true) {
+							if(opts.pushdirectionleft === true) {
 								directParentUL.find('ul').animate({
 									right: -(navWidth - opts.spacing),
 									opacity: 'hide'
@@ -255,7 +258,7 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 							directParentUL.find('li').removeClass(inactiveItem);
 
 							// Removing the close link
-							directParentUL.find('.' + closeSubName).animate({
+							directParentUL.find('.' + closeSubButton).animate({
 									opacity: 'hide'
 								}, opts.closingspeed, 
 								function() {
@@ -271,24 +274,26 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 							if ( ( subUL.length > 0 ) && ( !subUL.is(':visible') ) ) {
 							// If sub UL exist & is visible
 
-								var getScrollPosition = directParentUL.scrollTop();
+								console.log('Open next Subnav');
+
+								var getScrollPositionSubUl = directParentUL.scrollTop();
 
 								// Adding the class names
 								$(this).parent().addClass(inactiveItem);
 								directParentUL.addClass(inactiveList);
 
 								// Scrolling up function
-								if(opts.autoScroll == true) {
+								if(opts.autoScroll === true) {
 									// Check if scroll position is not 0px
-									if(getScrollPosition >= 1) {
+									if(getScrollPositionSubUl >= 1) {
 										directParentUL.animate({ scrollTop: 0 }, opts.scrollSpeed);
 									}
 								}
 
 								// Adding the close link
-								if(opts.autoScroll == true) {
+								if(opts.autoScroll === true) {
 									// Check if scroll position is not 0px
-									if(getScrollPosition >= 1) {
+									if(getScrollPositionSubUl >= 1) {
 										$(closeSubLink).delay(opts.scrollSpeed).insertAfter($(this)).css('display', 'none').animate({
 											opacity: 'show'
 										}, opts.openingspeed);
@@ -298,10 +303,10 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 										}, opts.openingspeed);
 									}
 								} else {
-									if(getScrollPosition >= 1) {
+									if(getScrollPositionSubUl >= 1) {
 										$(closeSubLink).insertAfter($(this)).css({
 											display: 'none',
-											top: getScrollPosition
+											top: getScrollPositionSubUl
 										}).animate({
 											opacity: 'show'
 										}, opts.openingspeed);
@@ -316,10 +321,10 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 								}
 
 								// Opening animation
-								if(opts.pushdirectionleft == true) {
-									if(opts.autoScroll == true) {
+								if(opts.pushdirectionleft === true) {
+									if(opts.autoScroll === true) {
 										// Check if scroll position is not 0px
-										if(getScrollPosition >= 1) {
+										if(getScrollPositionSubUl >= 1) {
 											subUL.delay(opts.scrollSpeed).css({
 												right: -(navWidth - opts.spacing)
 											}).animate({
@@ -337,10 +342,10 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 											}, opts.openingspeed);
 										}
 									} else {
-										if(getScrollPosition >= 1) {
+										if(getScrollPositionSubUl >= 1) {
 											subUL.css({
 												right: -(navWidth - opts.spacing),
-												top: getScrollPosition
+												top: getScrollPositionSubUl
 											}).animate({
 												right: 0,
 												opacity: 'show',
@@ -359,7 +364,7 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 										
 									}
 								} else {
-									if(opts.autoScroll == true) {
+									if(opts.autoScroll === true) {
 										subUL.delay(opts.scrollSpeed).css({
 											left: -(navWidth - opts.spacing)
 										}).animate({
@@ -368,10 +373,10 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 											width: navWidth - opts.spacing
 										}, opts.openingspeed);
 									} else {
-										if(getScrollPosition >= 1) {
+										if(getScrollPositionSubUl >= 1) {
 											subUL.css({
 												left: -(navWidth - opts.spacing),
-												top: getScrollPosition
+												top: getScrollPositionSubUl
 											}).animate({
 												left: 0,
 												opacity: 'show',
@@ -408,6 +413,8 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 						if ( ( subUL.length > 0 ) && ( !subUL.is(':visible') ) ) {
 						// If sub UL exist & is visible
 
+							console.log('Open Subnav');
+
 							var getScrollPosition = $('.' + infinityPush).scrollTop();
 
 							// Adding the class names
@@ -419,7 +426,7 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 							}
 
 							// Scrolling up function
-							if(opts.autoScroll == true) {
+							if(opts.autoScroll === true) {
 								// Check if scroll position is not 0px
 								if(getScrollPosition >= 1) {
 									$('.' + infinityPush).animate({ scrollTop: 0 }, opts.scrollSpeed);
@@ -427,7 +434,7 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 							}
 
 							// Adding the close link
-							if(opts.autoScroll == true) {
+							if(opts.autoScroll === true) {
 								// Check if scroll position is not 0px
 								if(getScrollPosition >= 1) {
 									$(closeSubLink).delay(opts.scrollSpeed).insertAfter($(this)).css('display', 'none').animate({
@@ -457,9 +464,9 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 							}
 
 							// Opening animation
-							if(opts.pushdirectionleft == true) {
+							if(opts.pushdirectionleft === true) {
 								// Check if autoscroll is enabled
-								if(opts.autoScroll == true) {
+								if(opts.autoScroll === true) {
 									// Check if scroll position is not 0px
 									if(getScrollPosition >= 1) {
 										subUL.delay(opts.scrollSpeed).css({
@@ -500,7 +507,7 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 									}
 								}
 							} else {
-								if(opts.autoScroll == true) {
+								if(opts.autoScroll === true) {
 									subUL.delay(opts.scrollSpeed).css({
 										left: -(navWidth - opts.spacing)
 									}).animate({
