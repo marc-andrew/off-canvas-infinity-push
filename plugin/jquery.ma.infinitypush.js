@@ -26,7 +26,6 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 			pushdirectionleft	: true,
 			autoScroll			: true,
 			scrollSpeed			: 300,
-			transition			: false,
 			destroy				: false
 		};
 
@@ -274,8 +273,6 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 							if ( ( subUL.length > 0 ) && ( !subUL.is(':visible') ) ) {
 							// If sub UL exist & is visible
 
-								console.log('Open next Subnav');
-
 								var getScrollPositionSubUl = directParentUL.scrollTop();
 
 								// Adding the class names
@@ -412,8 +409,6 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 							
 						if ( ( subUL.length > 0 ) && ( !subUL.is(':visible') ) ) {
 						// If sub UL exist & is visible
-
-							console.log('Open Subnav');
 
 							var getScrollPosition = $('.' + infinityPush).scrollTop();
 
