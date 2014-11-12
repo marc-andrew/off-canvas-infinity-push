@@ -1,6 +1,9 @@
 /*****************************************************************
  * Infinity Push
  *****************************************************************/
+body {
+  overflow-x: hidden;
+}
 .ma-infinitypush-open {
   display: block;
   position: fixed;
