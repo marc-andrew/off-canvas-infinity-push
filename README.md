@@ -12,6 +12,11 @@ This plugin offers unlimited sub navigations.
 * [No Off Canvas](http://www.marcandrew.net/off-canvas-infinity-push/index5.html)
 * [Reset](http://www.marcandrew.net/off-canvas-infinity-push/index6.html)
 
+### Live Examples
+* [Whistles](http://www.whistles.com/)
+* [Brown Bag Clothing](http://www.bbclothing.co.uk/)
+* [Woodhouse](http://www.woodhouseclothing.com/)
+
 ### Getting Started
 Load [jQuery(1.7+)](http://jquery.com/) and include Off Canvas Infinity Push plugin files.
 Add the stylesheet (jquery.ma.infinitypush.css) and the plugin (jquery.ma.infinitypush.js or jquery.ma.infinitypush.min.js) in your website.
