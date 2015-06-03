@@ -1,7 +1,11 @@
 /*****************************************************************
  * Infinity Push
  *****************************************************************/
+html {
+  overflow-x: hidden;
+}
 body {
+  position: relative;
   overflow-x: hidden;
 }
 .ma-infinitypush-open {
