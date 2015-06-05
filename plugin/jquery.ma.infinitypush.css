@@ -58,6 +58,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   z-index: 5000;
+  -webkit-overflow-scrolling: touch;
 }
 .ma-infinitypush-wrapper .ma-infinitypush ul, .ma-infinitypush-wrapper .ma-infinitypush ol {
   background-color: #f9f7f6;
