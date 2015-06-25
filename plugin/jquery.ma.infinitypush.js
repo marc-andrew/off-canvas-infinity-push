@@ -42,9 +42,10 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 			var oldposition				= $(this).data('oldposition') || $('body'),
 				navWrapper				= 'ma-infinitypush-wrapper',
 				navWrapperDiv			= '<div class="' + navWrapper + '"></div>',
+				navID 						= 'primary-navigation',
 				navButtonActive			= 'ma-infinitypush-active-button',
 				navButton				= 'ma-infinitypush-button',
-				navButtonDiv			= '<div class="' + navButton + '"></div>',
+				navButtonDiv			= '<button type="button" aria-expanded="false" aria-controls="'+ navID +'" aria-label="Reveal Navigation" class="' + navButton + '"></button>',
 				navButtonLeft			= 'ma-infinitypush-button-left',
 				navButtonRight			= 'ma-infinitypush-button-right',
 				infinityPush			= 'ma-infinitypush',
@@ -72,20 +73,33 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 				infinityPushWrapper.stop().removeAttr('style');
 			}
 
+			// toggle attribute values for menu button
+			function toggleState () {
+				var btn = $('.' + navButton),
+						stateOff = 'off',
+						stateOn = 'on',
+						attrOff = 'Reveal Navigation',
+						attrOn = 'Close Navigation',
+						expandOff = 'false',
+						expandOn = 'true';
+
+		    btn.attr('data-state', btn.attr('data-state') === stateOff ? stateOn : stateOff);
+		    btn.attr('aria-label', btn.attr('aria-label') === attrOff ? attrOn : attrOff);
+		    btn.attr('aria-expanded', btn.attr('aria-expanded') === expandOff ? expandOn : expandOff);
+		  }
+
 			// Start navigation toggle function
 			function infinityPushToggle() {
 
 				$('.' + navButton).on('click', function(){
-
 					if($('body').hasClass(infinityPushOpen)){
 						closingAnimation();
 					}
 					else {
 						openingAnimation();
+						toggleState();
 					}
-
 				});
-
 			}
 
 			// Start closing animation function
@@ -116,6 +130,7 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 				}
 
 				$('body').removeClass(infinityPushOpen);
+				toggleState();
 
 			}
 
