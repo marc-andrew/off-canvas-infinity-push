@@ -20,20 +20,20 @@
 	<meta name="keywords"		content="Marc Andrew, Designer, offcanvas, jquery, javascript, mobile, navigation, menu" />
 	<meta name="viewport" 		content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" href="plugin/jquery.ma.infinitypush.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="plugin/jquery.ma.infinitypush.css" />
 
-	<script type="text/javascript" src="js/jquery/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery/jquery-ui-1.10.2.custom.min.js"></script>
-	<script type="text/javascript" src="plugin/jquery.ma.infinitypush.js"></script>
+	<script src="js/jquery/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery/jquery-ui-1.10.2.custom.min.js"></script>
+	<script src="plugin/jquery.ma.infinitypush.js"></script>
 
 	<!--[if lt IE 9]>
-	<script type="text/javascript" src="js/html5.js"></script>
+	<script src="js/html5.js"></script>
 	<![endif]-->
 
-	<script type="text/javascript">
+	<script>
 
-		$(document).ready(function(){
+		$(function() {
 
 			$('#primary-navigation').infinitypush({
 				openingspeed: 300,
@@ -51,22 +51,22 @@
 
 <div id="wrapper">
 
-		<nav id="primary-navigation">
-			<ul>
-				<li><a href="#" title="Nav"><strong>Open Sab nav</strong></a>
+		<nav id="primary-navigation" role="navigation" aria-label="Primary">
+			<ul class="first">
+				<li><a href="#" title="Nav"><strong>Open Sub nav</strong></a>
 					<div class="sub-wrapper"> <!-- Sub wrapper is just an example -->
 						<ul>
 							<li><a href="#" title="Sub Nav">Link</a></li>
-							<li><a href="#" title="Sub Nav"><strong>Open Sab nav</strong></a>
+							<li><a href="#" title="Sub Nav"><strong>Open Sub nav</strong></a>
 								<div>
 								<ul>
-									<li><a href="#" title="Sub Nav 2"><strong>Open Sab nav</strong></a>
+									<li><a href="#" title="Sub Nav 2"><strong>Open Sub nav</strong></a>
 										<ul>
 											<li><a href="#" title="Sub Nav 3">Link</a></li>
-											<li><a href="#" title="Sub Nav 3"><strong>Open Sab nav</strong></a>
+											<li><a href="#" title="Sub Nav 3"><strong>Open Sub nav</strong></a>
 												<ul>
 													<li><a href="#" title="Sub Nav 4">Link</a></li>
-													<li><a href="#" title="Sub Nav 4"><strong>Open Sab nav</strong></a>
+													<li><a href="#" title="Sub Nav 4"><strong>Open Sub nav</strong></a>
 														<ul>
 															<li><a href="#" title="Sub Nav 5">Link</a></li>
 															<li><a href="#" title="Sub Nav 5">Link</a></li>
@@ -89,7 +89,7 @@
 									<li><a href="#" title="Sub Nav 2">Link</a></li>
 									<li><a href="#" title="Sub Nav 2">Link</a></li>
 									<li><a href="#" title="Sub Nav 2">Link</a></li>
-									<li><a href="#" title="Sub Nav 2"><strong>Open Sab nav</strong></a>
+									<li><a href="#" title="Sub Nav 2"><strong>Open Sub nav</strong></a>
 										<ul>
 											<li><a href="#" title="Sub Nav 3">Link</a></li>
 											<li><a href="#" title="Sub Nav 3">Link</a></li>
@@ -106,10 +106,10 @@
 							</li>
 							<li><a href="#" title="Sub Nav">Link</a></li>
 							<li><a href="#" title="Sub Nav">Link</a></li>
-							<li><a href="#" title="Sub Nav"><strong>Open Sab nav</strong></a>
+							<li><a href="#" title="Sub Nav"><strong>Open Sub nav</strong></a>
 								<div>
 								<ul>
-									<li><a href="#" title="Sub Nav 2"><strong>Open Sab nav</strong></a>
+									<li><a href="#" title="Sub Nav 2"><strong>Open Sub nav</strong></a>
 										<ul>
 											<li><a href="#" title="Sub Nav 3">Link</a></li>
 										</ul>
@@ -117,7 +117,7 @@
 									<li><a href="#" title="Sub Nav 2">Link</a></li>
 									<li><a href="#" title="Sub Nav 2">Link</a></li>
 									<li><a href="#" title="Sub Nav 2">Link</a></li>
-									<li><a href="#" title="Sub Nav 2"><strong>Open Sab nav</strong></a>
+									<li><a href="#" title="Sub Nav 2"><strong>Open Sub nav</strong></a>
 										<ul>
 											<li><a href="#" title="Sub Nav 3">Link</a></li>
 										</ul>
@@ -126,55 +126,10 @@
 								</ul>
 								</div>
 							</li>
-							<li><a href="#" title="Sub Nav"><strong>Open Sab nav</strong></a>
+							<li><a href="#" title="Sub Nav"><strong>Open Sub nav</strong></a>
 								<div>
 								<ul>
-									<li><a href="#" title="Sub Nav 2"><strong>Open Sab nav</strong></a>
-										<ul>
-											<li><a href="#" title="Sub Nav 3">Link</a></li>
-										</ul>
-									</li>
-									<li><a href="#" title="Sub Nav 2">Link</a></li>
-								</ul>
-								</div>
-							</li>
-							<li><a href="#" title="Sub Nav">Link</a></li>
-							<li><a href="#" title="Sub Nav">Link</a></li>
-							<li><a href="#" title="Sub Nav">Link</a></li>
-							<li><a href="#" title="Sub Nav">Link</a></li>
-							<li><a href="#" title="Sub Nav"><strong>Open Sab nav</strong></a>
-								<div>
-								<ul>
-									<li><a href="#" title="Sub Nav 2"><strong>Open Sab nav</strong></a>
-										<ul>
-											<li><a href="#" title="Sub Nav 3">Link</a></li>
-										</ul>
-									</li>
-									<li><a href="#" title="Sub Nav 2">Link</a></li>
-									<li><a href="#" title="Sub Nav 2">Link</a></li>
-									<li><a href="#" title="Sub Nav 2">Link</a></li>
-									<li><a href="#" title="Sub Nav 2"><strong>Open Sab nav</strong></a>
-										<ul>
-											<li><a href="#" title="Sub Nav 3">Link</a></li>
-										</ul>
-									</li>
-									<li><a href="#" title="Sub Nav 2">Link</a></li>
-								</ul>
-								</div>
-							</li>
-							<li><a href="#" title="Sub Nav">Link</a></li>
-							<li><a href="#" title="Sub Nav"><strong>Open Sab nav</strong></a>
-								<div>
-								<ul>
-									<li><a href="#" title="Sub Nav 2"><strong>Open Sab nav</strong></a>
-										<ul>
-											<li><a href="#" title="Sub Nav 3">Link</a></li>
-										</ul>
-									</li>
-									<li><a href="#" title="Sub Nav 2">Link</a></li>
-									<li><a href="#" title="Sub Nav 2">Link</a></li>
-									<li><a href="#" title="Sub Nav 2">Link</a></li>
-									<li><a href="#" title="Sub Nav 2"><strong>Open Sab nav</strong></a>
+									<li><a href="#" title="Sub Nav 2"><strong>Open Sub nav</strong></a>
 										<ul>
 											<li><a href="#" title="Sub Nav 3">Link</a></li>
 										</ul>
@@ -186,10 +141,11 @@
 							<li><a href="#" title="Sub Nav">Link</a></li>
 							<li><a href="#" title="Sub Nav">Link</a></li>
 							<li><a href="#" title="Sub Nav">Link</a></li>
-							<li><a href="#" title="Sub Nav"><strong>Open Sab nav</strong></a>
+							<li><a href="#" title="Sub Nav">Link</a></li>
+							<li><a href="#" title="Sub Nav"><strong>Open Sub nav</strong></a>
 								<div>
 								<ul>
-									<li><a href="#" title="Sub Nav 2"><strong>Open Sab nav</strong></a>
+									<li><a href="#" title="Sub Nav 2"><strong>Open Sub nav</strong></a>
 										<ul>
 											<li><a href="#" title="Sub Nav 3">Link</a></li>
 										</ul>
@@ -197,7 +153,51 @@
 									<li><a href="#" title="Sub Nav 2">Link</a></li>
 									<li><a href="#" title="Sub Nav 2">Link</a></li>
 									<li><a href="#" title="Sub Nav 2">Link</a></li>
-									<li><a href="#" title="Sub Nav 2"><strong>Open Sab nav</strong></a>
+									<li><a href="#" title="Sub Nav 2"><strong>Open Sub nav</strong></a>
+										<ul>
+											<li><a href="#" title="Sub Nav 3">Link</a></li>
+										</ul>
+									</li>
+									<li><a href="#" title="Sub Nav 2">Link</a></li>
+								</ul>
+								</div>
+							</li>
+							<li><a href="#" title="Sub Nav">Link</a></li>
+							<li><a href="#" title="Sub Nav"><strong>Open Sub nav</strong></a>
+								<div>
+								<ul>
+									<li><a href="#" title="Sub Nav 2"><strong>Open Sub nav</strong></a>
+										<ul>
+											<li><a href="#" title="Sub Nav 3">Link</a></li>
+										</ul>
+									</li>
+									<li><a href="#" title="Sub Nav 2">Link</a></li>
+									<li><a href="#" title="Sub Nav 2">Link</a></li>
+									<li><a href="#" title="Sub Nav 2">Link</a></li>
+									<li><a href="#" title="Sub Nav 2"><strong>Open Sub nav</strong></a>
+										<ul>
+											<li><a href="#" title="Sub Nav 3">Link</a></li>
+										</ul>
+									</li>
+									<li><a href="#" title="Sub Nav 2">Link</a></li>
+								</ul>
+								</div>
+							</li>
+							<li><a href="#" title="Sub Nav">Link</a></li>
+							<li><a href="#" title="Sub Nav">Link</a></li>
+							<li><a href="#" title="Sub Nav">Link</a></li>
+							<li><a href="#" title="Sub Nav"><strong>Open Sub nav</strong></a>
+								<div>
+								<ul>
+									<li><a href="#" title="Sub Nav 2"><strong>Open Sub nav</strong></a>
+										<ul>
+											<li><a href="#" title="Sub Nav 3">Link</a></li>
+										</ul>
+									</li>
+									<li><a href="#" title="Sub Nav 2">Link</a></li>
+									<li><a href="#" title="Sub Nav 2">Link</a></li>
+									<li><a href="#" title="Sub Nav 2">Link</a></li>
+									<li><a href="#" title="Sub Nav 2"><strong>Open Sub nav</strong></a>
 										<ul>
 											<li><a href="#" title="Sub Nav 3">Link</a></li>
 										</ul>
@@ -212,13 +212,13 @@
 					</div>
 				</li>
 				<li><a href="#" title="Nav">Link</a></li>
-				<li><a href="#" title="Nav"><strong>Open Sab nav</strong></a>
+				<li><a href="#" title="Nav"><strong>Open Sub nav</strong></a>
 					<div class="sub-wrapper"> <!-- Sub wrapper is just an example -->
 						<ul>
-							<li><a href="#" title="Sub Nav"><strong>Open Sab nav</strong></a>
+							<li><a href="#" title="Sub Nav"><strong>Open Sub nav</strong></a>
 								<div>
 								<ul>
-									<li><a href="#" title="Sub Nav 2"><strong>Open Sab nav</strong></a>
+									<li><a href="#" title="Sub Nav 2"><strong>Open Sub nav</strong></a>
 										<ul>
 											<li><a href="#" title="Sub Nav 3">Link</a></li>
 										</ul>
@@ -229,10 +229,10 @@
 							</li>
 							<li><a href="#" title="Sub Nav">Link</a></li>
 							<li><a href="#" title="Sub Nav">Link</a></li>
-							<li><a href="#" title="Sub Nav"><strong>Open Sab nav</strong></a>
+							<li><a href="#" title="Sub Nav"><strong>Open Sub nav</strong></a>
 								<div>
 								<ul>
-									<li><a href="#" title="Sub Nav 2"><strong>Open Sab nav</strong></a>
+									<li><a href="#" title="Sub Nav 2"><strong>Open Sub nav</strong></a>
 										<ul>
 											<li><a href="#" title="Sub Nav 3">Link</a></li>
 										</ul>
@@ -251,19 +251,19 @@
 			</ul>
 
 			<ul class="second">
-				<li><a href="#" title="Nav"><strong>Open Sab nav</strong></a>
+				<li><a href="#" title="Nav"><strong>Open Sub nav</strong></a>
 					<ul>
-						<li><a href="#" title="Sub Nav"><strong>Open Sab nav</strong></a>
+						<li><a href="#" title="Sub Nav"><strong>Open Sub nav</strong></a>
 							<ul>
 								<li><a href="#" title="Sub Nav 2">Link</a></li>
 								<li><a href="#" title="Sub Nav 2">Link</a></li>
 							</ul>
 						</li>
 						<li><a href="#" title="Sub Nav">Link</a></li>
-						<li><a href="#" title="Sub Nav"><strong>Open Sab nav</strong></a>
+						<li><a href="#" title="Sub Nav"><strong>Open Sub nav</strong></a>
 							<div>
 							<ul>
-								<li><a href="#" title="Sub Nav 2"><strong>Open Sab nav</strong></a>
+								<li><a href="#" title="Sub Nav 2"><strong>Open Sub nav</strong></a>
 									<ul>
 										<li><a href="#" title="Sub Nav 3">Link</a></li>
 									</ul>
@@ -274,7 +274,7 @@
 						</li>
 					</ul>
 					<ul>
-						<li><a href="#" title="Sub Nav"><strong>Open Sab nav</strong></a>
+						<li><a href="#" title="Sub Nav"><strong>Open Sub nav</strong></a>
 							<ul>
 								<li><a href="#" title="Sub Nav 2">Link</a></li>
 								<li><a href="#" title="Sub Nav 2">Link</a></li>
@@ -293,9 +293,9 @@
 			</ul>
 
 			<ul class="third">
-				<li><a href="#" title="Nav"><strong>Open Sab nav</strong></a>
+				<li><a href="#" title="Nav"><strong>Open Sub nav</strong></a>
 					<ul>
-						<li><a href="#" title="Sub Nav"><strong>Open Sab nav</strong></a>
+						<li><a href="#" title="Sub Nav"><strong>Open Sub nav</strong></a>
 							<ul>
 								<li><a href="#" title="Sub Nav 2">Link</a></li>
 								<li><a href="#" title="Sub Nav 2">Link</a></li>
@@ -328,7 +328,7 @@
 			</ul>
 		</nav>
 
-		<div id="main">
+		<div id="main" role="main" aria-label="Example Content">
 
 			<h1>Off Canvas Infinity Push Mobile Navigation</h1>
 
@@ -347,7 +347,7 @@
 
 		</div> <!-- End Main -->
 
-		<footer id="footer">
+		<footer id="footer" role="contentinfo">
 			<div class="footer-main"><p><a href="https://github.com/marc-andrew/off-canvas-infinity-push" title="Fork on GitHub">Fork on GitHub</a></p></div>
 		</footer>
 
