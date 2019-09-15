@@ -202,7 +202,7 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 				// Wrapping the element & add new class name
 				$(this).before(navWrapperDiv).addClass(infinityPush).appendTo('.' + navWrapper);
 
-				var navWidth	= $('.' + navWrapper).width();
+				var navWidth = $('.' + navWrapper).outerWidth();
 
 				// Add the mobile menu button
 				if(opts.offcanvas === true) {
@@ -228,7 +228,7 @@ MIT License (http://www.opensource.org/licenses/mit-license.html)
 				$('.' + infinityPush).on('click', 'a', function(){
 
 					// General settings
-					var navWidth		= $(infinityPushWrapper).width(),
+					var navWidth		= $(infinityPushWrapper).outerWidth(),
 						headParentUL	= $(this).parents(infinityPushWrapper).children('ul'),
 						directParentUL	= $(this).closest('ul'),
 						subUL			= $(this).parent().find('ul').first(),
